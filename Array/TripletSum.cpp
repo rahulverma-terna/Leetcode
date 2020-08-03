@@ -1,4 +1,10 @@
-int l, r; 
+#include <iostream>
+#include <bits/stdc++.h> 
+
+using namespace std;
+
+int find3Numbers(int *A,int arr_size,int sum){
+   int l, r; 
   
     /* Sort the elements */
     sort(A, A + arr_size); 
@@ -16,12 +22,29 @@ int l, r;
         r = arr_size - 1; // index of the last element 
         while (l < r) { 
             if (A[i] + A[l] + A[r] == sum) { 
-                printf("Triplet is %d, %d, %d", A[i], 
-                       A[l], A[r]); 
-                return true; 
+                //printf("Triplet is %d, %d, %d", A[i], 
+                     // A[l], A[r]); 
+                return 1; 
             } 
             else if (A[i] + A[l] + A[r] < sum) 
                 l++; 
             else // A[i] + A[l] + A[r] > sum 
                 r--; 
         }
+ }
+ return 0;
+}
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n,sum;
+		cin>>n>>sum;
+		int i,a[n];
+		for(i=0;i<n;i++)
+			cin>>a[i];
+        cout <<  find3Numbers(a, n, sum) << endl;
+    }
+}
